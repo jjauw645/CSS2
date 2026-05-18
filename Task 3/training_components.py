@@ -1,8 +1,6 @@
-"""Reusable training components for the CSS2 gingivitis segmentation notebooks.
-
-These are designed to replace fragile notebook cells while keeping the current
-PyTorch + segmentation-models-pytorch workflow.
-"""
+# Reusable training components for the CSS2 gingivitis segmentation notebooks
+# These are designed to replace fragile notebook cells while keeping the current
+# PyTorch + segmentation-models-pytorch workflow.
 
 from __future__ import annotations
 
@@ -116,11 +114,9 @@ def compute_class_weights(
     power: float = 0.5,
     device: torch.device | str | None = None,
 ) -> torch.Tensor:
-    """Return smoothed inverse-frequency weights.
-
-    The square-root smoothing avoids the extreme weights that raw inverse
-    frequency produces for tiny healthy regions.
-    """
+    # Return smoothed inverse-frequency weights.
+    # The square-root smoothing avoids the extreme weights that raw inverse
+    # frequency produces for tiny healthy regions.
 
     counts = compute_pixel_counts(mask_folder, mode)
     num_classes = len(CLASS_NAMES[mode])
